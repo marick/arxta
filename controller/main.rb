@@ -1,9 +1,11 @@
-# Default url mappings are:
-#  a controller called Main is mapped on the root of the site: /
-#  a controller called Something is mapped on: /something
-# If you want to override this, add a line like this inside the class
-#  map '/otherurl'
-# this will force the controller to be mounted on: /otherurl
+require 'helper/layout_decisions'
 
 class MainController < Controller
+  helper :layout_decisions
+
+  before_all { 
+    choose_credits
+    identify_current_page
+  }
+
 end
