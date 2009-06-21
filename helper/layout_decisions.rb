@@ -11,7 +11,24 @@ module Ramaze
         }
       end
 
-      def identify_current_page
+      def link_to_page(page_name, descriptive_name)
+        %Q{<li>
+              <a href="#{page_name}.html" rel="self" #{ tag_current_page(page_name) }>
+                #{descriptive_name}
+              </a>
+
+	   </li>
+          }
+      end
+
+      def tag_current_page(page_name)
+        return '' unless page_name == @action_name
+        %Q{ id = "current" }
+      end
+
+      def remember_action
+        # Current.action.name is not correct in layouts.
+        @action_name = Current.action.name
       end
     end
   end

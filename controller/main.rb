@@ -5,7 +5,17 @@ class MainController < Controller
 
   before_all { 
     choose_credits
-    identify_current_page
+    remember_action
   }
+
+  def index
+    puts "==== In controller action index"
+    puts "==== current action: #{Ramaze::Current.action.name}"
+  end
+
+  def gear
+    puts "==== In controller action gear"
+    puts "==== current action: #{Ramaze::Current.action.name}"
+  end
 
 end

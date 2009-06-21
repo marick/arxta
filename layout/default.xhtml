@@ -37,7 +37,10 @@
       
       <div id="sidebarContainer"><!-- Start Sidebar wrapper -->
 	<div id="navcontainer"><!-- Start Navigation -->
-	  <ul><li><a href="index.html" rel="self" id="current">Home</a></li><li><a href="gear.html" rel="self">Gear</a></li></ul>
+	  <ul>
+	    #{ link_to_page('index', 'Home') }
+	    #{ link_to_page('gear', 'Gear') }
+	  </ul>
 	</div><!-- End navigation --> 
 	<div id="sidebar"><!-- Start sidebar content -->
 	  <h1 class="sideHeader"></h1><!-- Sidebar header -->
