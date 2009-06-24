@@ -1,20 +1,37 @@
 require 'erector'
 
-class Hello < Erector::Widget
+module FlickrReferences
+  # def flickpic(...)
+end
+
+class Layout < Erector::Widget
+
+  def linky(word, href)
+    a "haha", :href => 'http://www.exampler.com'
+  end
+  
   def content
-    html do 
+    html do
       head do
         title "The title"
       end
       body do
-        p :style => 'color: red;' do 
-          text "hello, "
-          b @greeted
-          text "!"
-        end
+        page_body
       end
 
     end
+  end  
+end
+
+class Hello < Layout
+  def page_body
+    p :style => 'color: green;' do
+      text "hello, "
+      linky @greeted, 5
+      text "!"
+    end
+    
+
   end
 end
         
