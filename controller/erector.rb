@@ -31,14 +31,71 @@ class ErectorController < Ramaze::Controller
     makediv :sidebar_header, 'sideHeader'
     makediv :footer
 
-    def clearer
-      div(:class => 'clearer')
-    end
-
-
-    def content
+    def for_page_content(&block)
       instruct
       rawtext doctype
+      html_head
+      body do
+        container do
+          the_header
+          content_container do
+            div(:id => 'content') do
+              block.call
+            end
+            clearer
+          end
+          the_sidebar
+          the_footer
+        end
+      end
+    end
+
+    def the_header
+      page_header do
+        page_header_background
+        h1 raw("AR&otimes;TA")
+        h2 do
+          text 'Artisanal Retro-Futurism'; br
+          text 'crossed with'; br
+          text 'Team-Scale Anarcho-Syndicalism'
+        end
+      end
+    end
+
+    def the_sidebar
+      sidebar_container do
+        nav_container do
+          ul do
+            li { a 'Home', :href => 'index', :id=>'current', :rel=>'self' }
+            li { a 'Gear', :href => 'gear', :rel=>'self'}
+          end
+        end
+        sidebar do
+          h1 :class => 'sideHeader' do
+          end
+        end
+      end
+      clearer
+    end
+
+    def the_footer
+      footer do
+        p do
+          text "The image of futuristic Seattle was composed of photos from "
+          a 'Jake Khuon', :href=>"http://www.flickr.com/photos/wintrhawk/470424868/"
+          text ", "
+          a 'Steve Jurvetson', :href=> "http://www.flickr.com/photos/jurvetson/2904881415/"
+          text ', and '
+          a 'FaceMePLS', :href=>"http://www.flickr.com/photos/faceme/1509037350/"
+          text ". All the images are covered by a Creative Commons license. "
+          text "The look and feel of the site is loosely based on the Urban template delivered with "
+          a 'RapidWeaver', :href=>"http://www.realmacsoftware.com/rapidweaver/"
+          text '.'
+        end
+      end
+    end
+
+    def html_head
       html :xmlns => 'http://www/w3.org/1999/xhtml' do
         head do
           meta 'http-equiv' => 'content-type', 'content' => 'text/html; charset=utf-8'
@@ -56,43 +113,20 @@ class ErectorController < Ramaze::Controller
           link :href=>"/css/screen.css", :media=>"screen", :rel=>"stylesheet",
                :type=>"text/css"
         end
-        body do
-          container do
-            page_header do
-              page_header_background
-              h1 raw("AR&otimes;TA")
-              h2 do
-                text 'Artisanal Retro-Futurism'; br
-                text 'crossed with'; br
-                text 'Team-Scale Anarcho-Syndicalism'
-              end
-            end
-            content_container do
-              div(:id => 'content') do
-                p 'here is some content'
-                p 'here is some more content'
-                p 'here is even more content'
-              end
-              clearer
-            end
-            sidebar_container do
-              nav_container do
-                ul do
-                  li { a 'Home', :href => 'index', :id=>'current', :rel=>'self' }
-                  li { a 'Gear', :href => 'gear', :rel=>'self'}
-                end
-              end
-              sidebar do
-                h1 :class => 'sideHeader' do
-                end
-              end
-            end
-            clearer
-            footer do
-              p "credits"
-            end
-          end
-        end
+      end
+    end
+
+
+    def clearer
+      div(:class => 'clearer')
+    end
+
+
+    def content
+      for_page_content do
+        p 'here is some content'
+        p 'here is some more content'
+        p 'here is even more content'
       end
     end
   end
