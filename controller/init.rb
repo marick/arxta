@@ -8,5 +8,4 @@ class Controller < Ramaze::Controller
 end
 
 # Here go your requires for subclasses of Controller:
-require 'controller/main'
 require 'controller/erector'
