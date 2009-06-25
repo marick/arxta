@@ -1,4 +1,8 @@
-module MoreHtml
+require 'erector'
+
+module Erector
+
+  class Widget
 
   def self.combine(result, tag1, tag2)
     defn = "def #{result}(*args, &block)
@@ -12,3 +16,5 @@ module MoreHtml
   combine :pb, :p, :b
 
 end
+
+  end
