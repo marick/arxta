@@ -1,9 +1,14 @@
 module MoreHtml
-  def lip(*args, &block)
-    li { p(*args, &block) }
+
+  def self.combine(result, tag1, tag2)
+    defn = "def #{result}(*args, &block)
+              #{tag1} { #{tag2}(*args, &block) }
+            end"
+    module_eval defn
   end
 
-  def pem(*args, &block)
-    p { em(*args, &block) }
-  end
+  combine :lip, :li, :p
+  combine :pem, :p, :em
+  combine :pb, :p, :b
+
 end
