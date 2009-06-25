@@ -1,3 +1,6 @@
+require 'erector'
+
+
 class ArxtaPage < Erector::Widget
 
   def doctype
