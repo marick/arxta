@@ -1,7 +1,9 @@
 require 'erector'
+require 'helper/more-html'
 
 
 class ArxtaPage < Erector::Widget
+  include MoreHtml
 
   def doctype
     %q{

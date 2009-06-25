@@ -2,14 +2,6 @@ require 'helper/arxta-page'
 
 
 class IndexPage < ArxtaPage
-  def lip(*args, &block)
-    li { p(*args, &block) }
-  end
-
-  def pem(*args, &block)
-    p { em(*args, &block) }
-  end
-
   def content
     for_page_content do
       p do
