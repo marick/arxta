@@ -1,4 +1,4 @@
-class ErectorController < Ramaze::Controller
+class MainController < Ramaze::Controller
   def index
     require 'view/index-page'
     IndexPage.new.to_pretty
