@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: ProjectCreator#copy_check
+is_singleton: false
+name: copy_check
+params: (to)
+visibility: public

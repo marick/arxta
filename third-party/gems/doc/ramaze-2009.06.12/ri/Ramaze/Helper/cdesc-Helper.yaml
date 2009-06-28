@@ -1,0 +1,28 @@
+--- !ruby/object:RI::ClassDescription 
+attributes: []
+
+class_methods: []
+
+comment: 
+- !ruby/struct:SM::Flow::P 
+  body: "use this inside your controller to directly build Tagz Refer to the Tagz-documentation and testsuite for more examples. Usage:"
+- !ruby/struct:SM::Flow::VERB 
+  body: "  tagz { h1_{ &quot;Apples &amp; Oranges&quot; } }                   #=&gt; &quot;&lt;h1&gt;Apples &amp;amp; Oranges&lt;/h1&gt;&quot;\n  tagz { h1_(:class =&gt; 'fruits&amp;floots'){ 'Apples' } }  #=&gt; &quot;&lt;h1 class=\\&quot;fruits&amp;amp;floots\\&quot;&gt;Apples&lt;/h1&gt;&quot;\n"
+constants: 
+- !ruby/object:RI::Constant 
+  comment: 
+  - !ruby/struct:SM::Flow::P 
+    body: This helper simply includes the Nitro::FormHelper so you can use its methods in your Controller.
+  name: Nitroform
+  value: "::Nitro::FormHelper"
+- !ruby/object:RI::Constant 
+  comment: 
+  name: Tagz
+  value: "::Tagz"
+full_name: Ramaze::Helper
+includes: []
+
+instance_methods: []
+
+name: Helper
+superclass: 

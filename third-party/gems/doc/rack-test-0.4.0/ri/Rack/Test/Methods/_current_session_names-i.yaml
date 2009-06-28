@@ -1,0 +1,10 @@
+--- !ruby/object:RI::MethodDescription 
+aliases: []
+
+block_params: 
+comment: 
+full_name: Rack::Test::Methods#_current_session_names
+is_singleton: false
+name: _current_session_names
+params: ()
+visibility: public
