@@ -8,12 +8,12 @@ class ComposedTagTests < ErectorTest::TestCase
 
   context "lip" do
     should "compose two tags" do
-      erectorify { lip("foo") }
+      use_in_widget_context { lip("foo") }
       assert { xpath('/li/p').text == 'foo' }
     end
 
     should "allow block" do
-      erectorify { lip { em "foo" } }
+      use_in_widget_context { lip { em "foo" } }
       assert { xpath('/li/p/em').text == 'foo' }
     end
   end

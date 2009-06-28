@@ -3,7 +3,7 @@ module ErectorTest
   class TestCase < Test::Unit::TestCase
     include Erector::Mixin
 
-    def erectorify(&block)
+    def use_in_widget_context(&block)
       text = erector(&block)
       assert_xhtml(text)
     end
