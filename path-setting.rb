@@ -1,28 +1,30 @@
-require 'ramaze'
-
 module Locations
-
-  def self.adjust_load_paths
-    $:.delete('.')
-    restrict_load_path_to_defaults
-    make_third_party_libs_and_gems_available
+  def self.__DIR__(*args)  # Borrowed from Ramaze.
+    filename = caller[0][/^(.*):/, 1]
+    dir = File.expand_path(File.dirname(filename))
+    ::File.expand_path(::File.join(dir, *args.map{|a| a.to_s}))
   end
 
+  # All libraries must be inside third-party.
   def self.restrict_load_path_to_defaults
     require 'rbconfig'
-    $:.delete_if { | p | p =~ Regexp.new(RbConfig::CONFIG['sitedir']) }
+    $LOAD_PATH.delete_if { | p | p =~ Regexp.new(RbConfig::CONFIG['sitedir']) }
     ENV['RUBYLIB'].split(':').each do | path |
       $:.delete(path)
     end if ENV.has_key?('RUBYLIB')
   end
 
-  def self.make_third_party_libs_and_gems_available
-    $: << __DIR__ + "/third-party/lib"
-    RbConfig::CONFIG['sitelibdir'] = $:.last   # Rubygems uses this
-    unless require 'rubygems'
-      Gem::ConfigMap[:sitelibdir] = $:.last
-    end
-    Gem.clear_paths
-    ENV['GEM_HOME'] = __DIR__ + "/third-party/gems"
-  end
+  Gem.clear_paths
+  ENV['GEM_HOME'] = ENV['GEM_PATH'] = File.join(__DIR__,'third-party', 'gems')
+  require 'rubygems'
+
+  # Add the directory this file resides in to the load path, so you can run the
+  # app from any other working directory
+  $LOAD_PATH.unshift(__DIR__)
+
+  # Everything should be loaded relative to app's root.
+  $LOAD_PATH.delete('.')
+
+  restrict_load_path_to_defaults
+  $LOAD_PATH << __DIR__ + "/third-party/lib"
 end
