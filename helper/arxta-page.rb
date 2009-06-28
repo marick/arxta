@@ -2,7 +2,10 @@ require 'erector'
 require 'helper/more-html'
 
 
+
+
 class ArxtaPage < Erector::Widget
+  needs :within_site_link_maker
 
   def doctype
     %q{
@@ -16,7 +19,6 @@ class ArxtaPage < Erector::Widget
     method = "def #{name}(&block)
                 div(:id => '#{id_name}', &block)
               end"
-    puts method
     class_eval(method)
   end
 
@@ -30,6 +32,13 @@ class ArxtaPage < Erector::Widget
   makediv :sidebar
   makediv :sidebar_header, 'sideHeader'
   makediv :footer
+
+  def content
+    for_page_content do
+      puts "for_page_content"
+      text "You're expected to override content"
+    end
+  end
 
   def for_page_content(&block)
     instruct
@@ -63,11 +72,12 @@ class ArxtaPage < Erector::Widget
   end
 
   def the_sidebar
+#    puts "making sidebar: #{within_site_link_maker.inspect}"
     sidebar_container do
       nav_container do
         ul do
-          li { a 'Home', :href => 'index', :id=>'current', :rel=>'self' }
-          li { a 'Gear', :href => 'gear', :rel=>'self'}
+          li { within_site_link_maker.emit_via(self, :text => 'Home', :route => :index); puts "li out" }
+          li { within_site_link_maker.emit_via(self, :text => 'Gear', :route => :gear) }
         end
       end
       sidebar do

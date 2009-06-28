@@ -1,7 +1,6 @@
 require 'erector'
 
 module Erector
-
   class Widget
 
     def self.combine(result, tag1, tag2)
@@ -14,7 +13,5 @@ module Erector
     combine :lip, :li, :p
     combine :pem, :p, :em
     combine :pb, :p, :b
-
   end
-
 end
