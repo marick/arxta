@@ -3,7 +3,6 @@
 #
 # It will be required from either `config.ru` or `start.rb`
 
-require 'path-setting'
 require 'ramaze'
     
 # Initialize controllers and models
