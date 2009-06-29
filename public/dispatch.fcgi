@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'rubygems'
+require File.expand_path('path-setting', File.dirname(__FILE__), '..')
 require 'ramaze'
 
 # FCGI doesn't like you writing to stdout
