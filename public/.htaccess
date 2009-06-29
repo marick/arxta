@@ -1,0 +1,20 @@
+# General Apache options
+Options +FollowSymLinks +ExecCGI
+AddHandler cgi-script cgi rb
+<IfModule mod_fastcgi.c>
+ AddHandler fastcgi-script fcgi
+</IfModule>
+<IfModule mod_fcgid.c>
+ AddHandler fcgid-script fcgi
+</IfModule>
+
+# Redirect all requests not available on the filesystem
+# to Ramaze. By default the cgi dispatcher is used which
+# is very slow. For better performance replace the
+# dispatcher with the fastcgi one
+
+RewriteEngine On
+RewriteRule ^$ index.html [QSA]
+RewriteRule ^([^.]+)$ $1.html [QSA]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ dispatch.fcgi [QSA,L]
