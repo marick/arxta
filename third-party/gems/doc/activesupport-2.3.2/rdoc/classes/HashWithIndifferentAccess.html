@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Class: HashWithIndifferentAccess</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Class</strong></td>
+          <td class="class-name-in-header">HashWithIndifferentAccess</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../files/lib/active_support/core_ext/hash/indifferent_access_rb.html">
+                lib/active_support/core_ext/hash/indifferent_access.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        <tr class="top-aligned-row">
+            <td><strong>Parent:</strong></td>
+            <td>
+                Hash
+            </td>
+        </tr>
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+This class has dubious semantics and we only have it so that people can
+write params[:key] instead of params[&#8216;key&#8217;] and they get the
+same value for both keys.
+</p>
+
+    </div>
+
+
+   </div>
+
+    <div id="method-list">
+      <h3 class="section-bar">Methods</h3>
+
+      <div class="name-list">
+      <a href="#M000133">[]=</a>&nbsp;&nbsp;
+      <a href="#M000146">convert_key</a>&nbsp;&nbsp;
+      <a href="#M000147">convert_value</a>&nbsp;&nbsp;
+      <a href="#M000132">default</a>&nbsp;&nbsp;
+      <a href="#M000141">delete</a>&nbsp;&nbsp;
+      <a href="#M000138">dup</a>&nbsp;&nbsp;
+      <a href="#M000136">fetch</a>&nbsp;&nbsp;
+      <a href="#M000135">key?</a>&nbsp;&nbsp;
+      <a href="#M000139">merge</a>&nbsp;&nbsp;
+      <a href="#M000131">new</a>&nbsp;&nbsp;
+      <a href="#M000140">reverse_merge</a>&nbsp;&nbsp;
+      <a href="#M000142">stringify_keys!</a>&nbsp;&nbsp;
+      <a href="#M000143">symbolize_keys!</a>&nbsp;&nbsp;
+      <a href="#M000145">to_hash</a>&nbsp;&nbsp;
+      <a href="#M000144">to_options!</a>&nbsp;&nbsp;
+      <a href="#M000134">update</a>&nbsp;&nbsp;
+      <a href="#M000137">values_at</a>&nbsp;&nbsp;
+      </div>
+    </div>
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+    <div id="aliases-list">
+      <h3 class="section-bar">External Aliases</h3>
+
+      <div class="name-list">
+                        <table summary="aliases">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">[]=</td>
+          <td>-&gt;</td>
+          <td class="context-item-value">regular_writer</td>
+        </tr>
+                        </table>
+      </div>
+    </div>
+
+
+      
+
+
+    <!-- if method_list -->
+    <div id="methods">
+      <h3 class="section-bar">Public Class methods</h3>
+
+      <div id="method-M000131" class="method-detail">
+        <a name="M000131"></a>
+
+        <div class="method-heading">
+          <a href="HashWithIndifferentAccess.src/M000131.html" target="Code" class="method-signature"
+            onclick="popupCode('HashWithIndifferentAccess.src/M000131.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(constructor = {})</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <h3 class="section-bar">Public Instance methods</h3>
+
+      <div id="method-M000133" class="method-detail">
+        <a name="M000133"></a>
+
+        <div class="method-heading">
+          <a href="HashWithIndifferentAccess.src/M000133.html" target="Code" class="method-signature"
+            onclick="popupCode('HashWithIndifferentAccess.src/M000133.html');return false;">
+          <span class="method-name">[]=</span><span class="method-args">(key, value)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Assigns a <a href="HashWithIndifferentAccess.html#M000131">new</a> value to
+the hash:
+</p>
+<pre>
+  hash = HashWithIndifferentAccess.new
+  hash[:key] = &quot;value&quot;
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000146" class="method-detail">
+        <a name="M000146"></a>
+
+        <div class="method-heading">
+          <a href="HashWithIndifferentAccess.src/M000146.html" target="Code" class="method-signature"
+            onclick="popupCode('HashWithIndifferentAccess.src/M000146.html');return false;">
+          <span class="method-name">convert_key</span><span class="method-args">(key)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000147" class="method-detail">
+        <a name="M000147"></a>
+
+        <div class="method-heading">
+          <a href="HashWithIndifferentAccess.src/M000147.html" target="Code" class="method-signature"
+            onclick="popupCode('HashWithIndifferentAccess.src/M000147.html');return false;">
+          <span class="method-name">convert_value</span><span class="method-args">(value)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000132" class="method-detail">
+        <a name="M000132"></a>
+
+        <div class="method-heading">
+          <a href="HashWithIndifferentAccess.src/M000132.html" target="Code" class="method-signature"
+            onclick="popupCode('HashWithIndifferentAccess.src/M000132.html');return false;">
+          <span class="method-name">default</span><span class="method-args">(key = nil)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000141" class="method-detail">
+        <a name="M000141"></a>
+
+        <div class="method-heading">
+          <a href="HashWithIndifferentAccess.src/M000141.html" target="Code" class="method-signature"
+            onclick="popupCode('HashWithIndifferentAccess.src/M000141.html');return false;">
+          <span class="method-name">delete</span><span class="method-args">(key)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Removes a specified key from the hash.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000138" class="method-detail">
+        <a name="M000138"></a>
+
+        <div class="method-heading">
+          <a href="HashWithIndifferentAccess.src/M000138.html" target="Code" class="method-signature"
+            onclick="popupCode('HashWithIndifferentAccess.src/M000138.html');return false;">
+          <span class="method-name">dup</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns an exact copy of the hash.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000136" class="method-detail">
+        <a name="M000136"></a>
+
+        <div class="method-heading">
+          <a href="HashWithIndifferentAccess.src/M000136.html" target="Code" class="method-signature"
+            onclick="popupCode('HashWithIndifferentAccess.src/M000136.html');return false;">
+          <span class="method-name">fetch</span><span class="method-args">(key, *extras)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Fetches the value for the specified key, same as doing hash[key]
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000135" class="method-detail">
+        <a name="M000135"></a>
+
+        <div class="method-heading">
+          <a href="HashWithIndifferentAccess.src/M000135.html" target="Code" class="method-signature"
+            onclick="popupCode('HashWithIndifferentAccess.src/M000135.html');return false;">
+          <span class="method-name">key?</span><span class="method-args">(key)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Checks the hash for a key matching the argument passed in:
+</p>
+<pre>
+  hash = HashWithIndifferentAccess.new
+  hash[&quot;key&quot;] = &quot;value&quot;
+  hash.key? :key  # =&gt; true
+  hash.key? &quot;key&quot; # =&gt; true
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000139" class="method-detail">
+        <a name="M000139"></a>
+
+        <div class="method-heading">
+          <a href="HashWithIndifferentAccess.src/M000139.html" target="Code" class="method-signature"
+            onclick="popupCode('HashWithIndifferentAccess.src/M000139.html');return false;">
+          <span class="method-name">merge</span><span class="method-args">(hash)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Merges the instantized and the specified hashes together, giving precedence
+to the values from the second hash Does not overwrite the existing hash.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000140" class="method-detail">
+        <a name="M000140"></a>
+
+        <div class="method-heading">
+          <a href="HashWithIndifferentAccess.src/M000140.html" target="Code" class="method-signature"
+            onclick="popupCode('HashWithIndifferentAccess.src/M000140.html');return false;">
+          <span class="method-name">reverse_merge</span><span class="method-args">(other_hash)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Performs the opposite of <a
+href="HashWithIndifferentAccess.html#M000139">merge</a>, with the keys and
+values from the first hash taking precedence over the second. This
+overloaded definition prevents returning a regular hash, if <a
+href="HashWithIndifferentAccess.html#M000140">reverse_merge</a> is called
+on a HashWithDifferentAccess.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000142" class="method-detail">
+        <a name="M000142"></a>
+
+        <div class="method-heading">
+          <a href="HashWithIndifferentAccess.src/M000142.html" target="Code" class="method-signature"
+            onclick="popupCode('HashWithIndifferentAccess.src/M000142.html');return false;">
+          <span class="method-name">stringify_keys!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000143" class="method-detail">
+        <a name="M000143"></a>
+
+        <div class="method-heading">
+          <a href="HashWithIndifferentAccess.src/M000143.html" target="Code" class="method-signature"
+            onclick="popupCode('HashWithIndifferentAccess.src/M000143.html');return false;">
+          <span class="method-name">symbolize_keys!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000145" class="method-detail">
+        <a name="M000145"></a>
+
+        <div class="method-heading">
+          <a href="HashWithIndifferentAccess.src/M000145.html" target="Code" class="method-signature"
+            onclick="popupCode('HashWithIndifferentAccess.src/M000145.html');return false;">
+          <span class="method-name">to_hash</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Convert to a Hash with String keys.
+</p>
+        </div>
+      </div>
+
+      <div id="method-M000144" class="method-detail">
+        <a name="M000144"></a>
+
+        <div class="method-heading">
+          <a href="HashWithIndifferentAccess.src/M000144.html" target="Code" class="method-signature"
+            onclick="popupCode('HashWithIndifferentAccess.src/M000144.html');return false;">
+          <span class="method-name">to_options!</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000134" class="method-detail">
+        <a name="M000134"></a>
+
+        <div class="method-heading">
+          <a href="HashWithIndifferentAccess.src/M000134.html" target="Code" class="method-signature"
+            onclick="popupCode('HashWithIndifferentAccess.src/M000134.html');return false;">
+          <span class="method-name">update</span><span class="method-args">(other_hash)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Updates the instantized hash with values from the second:
+</p>
+<pre>
+  hash_1 = HashWithIndifferentAccess.new
+  hash_1[:key] = &quot;value&quot;
+
+  hash_2 = HashWithIndifferentAccess.new
+  hash_2[:key] = &quot;New Value!&quot;
+
+  hash_1.update(hash_2) # =&gt; {&quot;key&quot;=&gt;&quot;New Value!&quot;}
+</pre>
+        </div>
+      </div>
+
+      <div id="method-M000137" class="method-detail">
+        <a name="M000137"></a>
+
+        <div class="method-heading">
+          <a href="HashWithIndifferentAccess.src/M000137.html" target="Code" class="method-signature"
+            onclick="popupCode('HashWithIndifferentAccess.src/M000137.html');return false;">
+          <span class="method-name">values_at</span><span class="method-args">(*indices)</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Returns an array of the values at the specified indices:
+</p>
+<pre>
+  hash = HashWithIndifferentAccess.new
+  hash[:a] = &quot;x&quot;
+  hash[:b] = &quot;y&quot;
+  hash.values_at(&quot;a&quot;, &quot;b&quot;) # =&gt; [&quot;x&quot;, &quot;y&quot;]
+</pre>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
