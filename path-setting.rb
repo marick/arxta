@@ -14,7 +14,6 @@ module Locations
     end if ENV.has_key?('RUBYLIB')
   end
 
-  Gem.clear_paths
   ENV['GEM_HOME'] = ENV['GEM_PATH'] = File.join(__DIR__,'third-party', 'gems')
   require 'rubygems'
 
