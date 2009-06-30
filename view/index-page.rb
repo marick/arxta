@@ -41,12 +41,9 @@ class IndexPage < ArxtaPage
         rawtext ". To form the Agile attitude, those two attitudes are crossed
                   (hybridized) like lions or tigers are crossed to form "
         a 'ligers',  :href=>"http://en.wikipedia.org/wiki/Liger"
-        rawtext '. Or perhaps a better analogy would be '
-        a 'crosses between chicken and game birds',  :href=>"http://en.wikipedia.org/wiki/Chicken_hybrids#Chicken_Hybrids"
-        rawtext ", since those species are less closely related than lions and tigers&mdash;just
-                 as technology and the social are often ("
-        a 'wrongly', :href=>"http://www.exampler.com/blog/2007/11/06/latour-table-of-contents/"
-        rawtext ') considered wildly different things.'
+        rawtext ". Trying to separate the social from the technical is a "
+        a 'mistake', :href=>"http://www.exampler.com/blog/2007/11/06/latour-table-of-contents/"
+        rawtext '.'
       end
 
       h2 'Technology'
