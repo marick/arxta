@@ -49,9 +49,7 @@ class IndexPage < ArxtaPage
       h2 'Technology'
 
       p do
-        rawtext "Within "
-        em "technology"
-        rawtext ", "
+        rawtext "Within <em>technology</em>, "
         a 'artisanal', :href=>"http://dictionary.reference.com/browse/artisanal"
         rawtext ' is supposed to connote:'
       end
@@ -59,8 +57,8 @@ class IndexPage < ArxtaPage
       ul do
         lip "Higher quality and a focus on a more demanding customer."
         lip do
-          rawtext 'A product that&#8217;s an unusual variation on a more typical product,
-                   typically one that&#8217;s not suitable for mass production. (For example, an '
+          rawtext 'A product that&#8217;s an unusual variation on a more typical product. Typically,
+                   the variation is one that&#8217;s not suitable for mass production. (For example, an '
           a 'artisanal apple', :href=>"http://www.wpr.org/book/071125b.html"
           rawtext ' might not ship as well as common varieties.) In the context of software development,
                     &#8220;artisanal&#8221; therefore suggests an extreme focus on the '
@@ -71,9 +69,9 @@ class IndexPage < ArxtaPage
           p do
             rawtext 'A '
             a 'craftsmanlike', :href=>"http://manifesto.softwarecraftsmanship.org/"
-            rawtext 'approach to process. That process is sometimes, '
-            em 'but not exclusively'
-            rawtext ', &#8220;old fashioned&#8221; or manual. We are like this '
+            rawtext ' approach to process. That process is sometimes, '
+            rawtext '<em>but not exclusively</em>,'
+            rawtext ' &#8220;old fashioned&#8221; or manual. We are like this '
             a 'artisanal cheese maker', :href=>"http://njmonthly.com/articles/lifestyle/health_and_wellness/artisanal-foods.html"
             rawtext ':'
           end
@@ -155,7 +153,7 @@ class IndexPage < ArxtaPage
       pem do
         rawtext "So. The "
         b "technology"
-        rawtext "half of the cross casts attention on giddy enthusiasm for both our products and how
+        rawtext " half of the cross casts attention on giddy enthusiasm for both our products and how
                  we build them."
       end
 
@@ -175,28 +173,24 @@ class IndexPage < ArxtaPage
       p do
 
         rawtext "At the same time, we want to recenter emphasis on the "
-        strong "team"
-        rawtext ". Too much of modern-day Agile depends on "
+        rawtext "<strong>team</strong>. Too much of modern-day Agile depends on "
         em "someone else"
-        rawtext "to make it succeed. Typically that&#8217;s upper management, whether via "
+        rawtext "to make it succeed. Typically that someone is upper management, whether via "
         a 'servant leadership', :href=>"http://www.leadersdirect.com/servant.html"
         rawtext ", outright command-and-control management, or something in between. While we
                 can&#8217;t ignore the world outside the team, we think it better to take the
-                attitude that, while it can make Agile fail, it cannot make it "
-        em "succeed"
-        rawtext ". Agile lives and dies by the team."
+                attitude that, while the outside world can make Agile fail, it cannot make it "
+        rawtext "<em>succeed</em>. Agile lives and dies by the team."
       end
 
       p do
 
         rawtext "Casting about for something odd that would combine
                   &#8220;anarchy&#8221; and &#8220;team&#8221;, we came upon"
-        strong "anarcho-syndicalism"
-        rawtext ". "
+        rawtext " <strong>anarcho-syndicalism</strong>. "
         a 'Anarcho-syndicalism', :href=>"http://en.wikipedia.org/wiki/Anarcho-syndicalism"
-        rawtext "was an economic/political movement from around 100 years
-                ago. The anarcho-syndicalists had laborers as their
-                constituency. Their goal was to end the oppressive
+        rawtext " was an economic/political/labor movement from around 100 years
+                ago. Its goal was to end the oppressive
                 power&mdash;and very existence&mdash;of both the State and
                 large-scale corporations by countering them with
                 self-organizing trades unions. Anarcho-syndicalism&#8217;s
@@ -206,8 +200,7 @@ class IndexPage < ArxtaPage
 
       p do
         rawtext "We are also taken by anarcho-syndicalism&#8217;s emphasis on "
-        em 'direct action'
-        rawtext ". Others believed that the route to
+        rawtext "<em>direct action</em>. Others believed that the route to
               better working conditions lay in, say, electing
               representatives who would speak for the workers, but the
               anarcho-syndicalists rejected that. In that rejection, we
