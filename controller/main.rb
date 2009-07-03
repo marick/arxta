@@ -20,5 +20,6 @@ class MainController < Ramaze::Controller
   has_page :index
   has_page :gear
   has_page :explanation
+  has_page :video
 
 end
