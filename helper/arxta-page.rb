@@ -76,7 +76,9 @@ class ArxtaPage < Erector::Widget
     sidebar_container do
       nav_container do
         ul do
-          li { within_site_link_maker.emit_via(self, :text => 'Home', :route => :index); puts "li out" }
+          li { within_site_link_maker.emit_via(self, :text => 'Home', :route => :index) }
+          li { within_site_link_maker.emit_via(self, :text => 'Words', :route => :explanation) }
+          li { within_site_link_maker.emit_via(self, :text => 'Video', :route => :video) }
           li { within_site_link_maker.emit_via(self, :text => 'Gear', :route => :gear) }
         end
       end

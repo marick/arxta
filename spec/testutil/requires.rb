@@ -1,3 +1,6 @@
+require 'path-setting'
+$:.unshift '/Applications/RubyMine 1.1.app/rb/testing/patch'
+
 require 'test/unit'
 require 'shoulda'
 require 'erector'
