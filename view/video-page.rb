@@ -24,17 +24,17 @@ class VideoPage < ArxtaPage
         raw text "."
       end
 
-      div :style => 'text-align: center;' do
-      a :href => video('small') do
-        img(:src => "/images/agile-roots-talk.png")
-      end
+      center do
+        a :href => video('small') do
+          img(:src => "/images/agile-roots-talk.png")
+        end
 
 
-      p do
-        a "Normal definition (640 x 360 MP4)", :href => video('small'); br
-        a "High definition (1280 x 720 HD MP4)", :href => video('large'); br
-        a "Video home page at Confreaks", :href => confreaks_home
-      end
+        p do
+          a "Normal definition (640 x 360 MP4)", :href => video('small'); br
+          a "High definition (1280 x 720 HD MP4)", :href => video('large'); br
+          a "Video home page at Confreaks", :href => confreaks_home
+        end
 
       end
 

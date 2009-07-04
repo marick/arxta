@@ -13,5 +13,9 @@ module Erector
     combine :lip, :li, :p
     combine :pem, :p, :em
     combine :pb, :p, :b
+
+    def center(&block)
+      div(:style => 'text-align: center;', &block)
+    end
   end
 end
