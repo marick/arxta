@@ -36,7 +36,8 @@ class ArxtaPageTests < ErectorTest::TestCase
     assert_routes(:index,
                   :explanation,
                   :video,
-                  :gear)         
+                  :gear,
+                  :help_wanted)         
   end
 
 end

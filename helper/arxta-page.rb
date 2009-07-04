@@ -80,6 +80,7 @@ class ArxtaPage < Erector::Widget
           li { within_site_link_maker.emit_via(self, :text => 'Words', :route => :explanation) }
           li { within_site_link_maker.emit_via(self, :text => 'Video', :route => :video) }
           li { within_site_link_maker.emit_via(self, :text => 'Gear', :route => :gear) }
+          li { within_site_link_maker.emit_via(self, :text => 'Help Wanted', :route => :help_wanted) }
         end
       end
       sidebar do

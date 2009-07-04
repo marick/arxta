@@ -30,26 +30,17 @@ class IndexPage < ArxtaPage
         more exactly the attitudes originally behind Agile; second,
         that it be obscure enough that no one will assume they
         already know what it means and that&mdash;amazingly
-        enough!&mdash;they are already doing it."
+        enough!&mdash;they are already doing it. "
+        within_site_link_maker.emit_via(self, :text => 'Read more...', :route => :explanation)
       end
 
       p do
-        rawtext 'There are two halves to the story: an attitude toward '
-        b 'technology'
-        rawtext ' and an attitude toward '
-        b 'the social'
-        rawtext ". To form the Agile attitude, those two attitudes are crossed
-                  (hybridized) like lions or tigers are crossed to form "
-        a 'ligers',  :href=>"http://en.wikipedia.org/wiki/Liger"
-        rawtext ". Trying to separate the social from the technical is a "
-        a 'mistake', :href=>"http://www.exampler.com/blog/2007/11/06/latour-table-of-contents/"
-        rawtext '.'
+        within_site_link_maker.emit_via(self, :text => 'Watch the video', :route => :video)        
       end
 
       p do
-        within_site_link_maker.emit_via(self, :text => 'Read more...', :route => :explanation)        
+        within_site_link_maker.emit_via(self, :text => 'Flaunt your support', :route => :gear)        
       end
-
 
     end
   end
