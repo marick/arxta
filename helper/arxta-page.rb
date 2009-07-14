@@ -72,24 +72,14 @@ class ArxtaPage < Erector::Widget
   end
 
   def the_sidebar
-#    puts "making sidebar: #{within_site_link_maker.inspect}"
     sidebar_container do
-      nav_container do
-        ul do
-          li { within_site_link_maker.emit_via(self, :text => 'Home', :route => :index) }
-          li { within_site_link_maker.emit_via(self, :text => 'Words', :route => :explanation) }
-          li { within_site_link_maker.emit_via(self, :text => 'Video', :route => :video) }
-          li { within_site_link_maker.emit_via(self, :text => 'Gear', :route => :gear) }
-          li { within_site_link_maker.emit_via(self, :text => 'Help Wanted', :route => :help_wanted) }
-        end
-      end
-      sidebar do
-        h1 :class => 'sideHeader' do
-        end
-      end
+      always_visible_links
+      links_relevant_to_this_page()
     end
     clearer
   end
+
+
 
   def the_footer
   end
@@ -111,6 +101,26 @@ class ArxtaPage < Erector::Widget
 
         link :href=>"/css/screen.css", :media=>"screen", :rel=>"stylesheet",
              :type=>"text/css"
+      end
+    end
+  end
+
+  def always_visible_links
+    nav_container do
+      ul do
+        li { within_site_link_maker.emit_via(self, :text => 'Home', :route => :index) }
+        li { within_site_link_maker.emit_via(self, :text => 'Words', :route => :explanation) }
+        li { within_site_link_maker.emit_via(self, :text => 'Video', :route => :video) }
+        li { within_site_link_maker.emit_via(self, :text => 'Gear', :route => :gear) }
+        li { within_site_link_maker.emit_via(self, :text => 'Help Wanted', :route => :help_wanted) }
+      end
+    end
+  end
+
+  def links_relevant_to_this_page()
+    sidebar do
+      h1 :class => 'sideHeader' do
+
       end
     end
   end
