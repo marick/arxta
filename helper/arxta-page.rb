@@ -51,7 +51,7 @@ class ArxtaPage < Erector::Widget
   def for_page_content(&block)
     instruct
     rawtext doctype
-    html :xmlns => 'http://www/w3.org/1999/xhtml' do
+    html :xmlns => 'http://www.w3.org/1999/xhtml' do
       html_head
       body do
         container do
