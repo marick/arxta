@@ -7,7 +7,7 @@ class RecordingFakeWidget
   def [](index)
     @record[index]
   end
-  
+
   def emit_via(parent, settings = {})
     @record ||= []
     @record << settings
@@ -37,7 +37,39 @@ class ArxtaPageTests < ErectorTest::TestCase
                   :explanation,
                   :video,
                   :gear,
-                  :help_wanted)         
+                  :help_wanted)
   end
 
+  context "display of links relevant to current page" do
+
+    should "be empty when there are no relevant links" do
+      page = ArxtaPage.new(:within_site_link_maker => @link_maker)
+      assert_xhtml(page.to_pretty)
+      deny { xpath(:div, :links_relevant_to_this_page)}
+    end
+
+    should "display a link when given" do
+      page = ArxtaPage.new(:within_site_link_maker => @link_maker)
+      page.has_relevant_link("name", :href => "http://www.example.com")
+      assert_xhtml(page.to_pretty)
+      assert do
+        xpath(:div, :links_relevant_to_this_page) do
+          xpath(:a, :href => "http://www.example.com").text == "name"
+        end
+      end
+    end
+
+    should "be able to display two links too" do
+      page = ArxtaPage.new(:within_site_link_maker => @link_maker)
+      page.has_relevant_link("name1", :href => "http://www.example1.com")
+      page.has_relevant_link("marick", :href => "http://www.exampler.com")
+      assert_xhtml(page.to_pretty)
+      assert do
+        xpath(:div, :links_relevant_to_this_page) do
+          xpath(:a, :href => "http://www.example1.com", ?. => "name1")
+          xpath(:a, :href => "http://www.exampler.com", ?. => "marick")
+        end
+      end
+    end
+  end
 end

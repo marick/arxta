@@ -7,6 +7,15 @@ require 'helper/more-html'
 class ArxtaPage < Erector::Widget
   needs :within_site_link_maker
 
+  def initialize(*args)
+    super
+    @links_relevant_to_this_page = []
+  end
+
+  def has_relevant_link(name, hash={})
+    @links_relevant_to_this_page << [name, hash]
+  end
+
   def doctype
     %q{
         <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -35,7 +44,6 @@ class ArxtaPage < Erector::Widget
 
   def content
     for_page_content do
-      puts "for_page_content"
       text "You're expected to override content"
     end
   end
@@ -43,18 +51,20 @@ class ArxtaPage < Erector::Widget
   def for_page_content(&block)
     instruct
     rawtext doctype
-    html_head
-    body do
-      container do
-        the_header
-        content_container do
-          div(:id => 'content') do
-            block.call
+    html :xmlns => 'http://www/w3.org/1999/xhtml' do
+      html_head
+      body do
+        container do
+          the_header
+          content_container do
+            div(:id => 'content') do
+              block.call
+            end
+            clearer
           end
-          clearer
+          the_sidebar
+          the_footer
         end
-        the_sidebar
-        the_footer
       end
     end
   end
@@ -73,56 +83,60 @@ class ArxtaPage < Erector::Widget
 
   def the_sidebar
     sidebar_container do
-      always_visible_links
-      links_relevant_to_this_page()
+      nav_container do
+        always_visible_links
+        links_relevant_to_this_page()
+      end
     end
     clearer
   end
-
 
 
   def the_footer
   end
 
   def html_head
-    html :xmlns => 'http://www/w3.org/1999/xhtml' do
-      head do
-        meta 'http-equiv' => 'content-type', 'content' => 'text/html; charset=utf-8'
-        meta 'http-equiv'=> "Content-Script-Type", 'content'=>"text/javascript"
-        meta 'http-equiv'=> "Content-Style-Type", 'content'=>"text/css"
-        meta 'name'=> "robots", 'content'=>"all"
-        meta 'name'=> "description", 'content'=>"Artisanal retro-futurism crossed with team-scale anarcho-syndicalism"
-        meta 'name'=> "generator", 'content'=>"Ramaze #{Ramaze::VERSION}"
-        meta 'name'=> "keywords", 'content'=>"software artisan, software craftsmanship, agile, retro-futurism, software teams, anarcho syndicalism, agile manifesto"
-        meta 'name'=> "author", 'content'=>"Brian Marick"
-        meta 'name'=> "date", 'content' => "#{Time.now.iso8601}"
+    head do
+      meta 'http-equiv' => 'content-type', 'content' => 'text/html; charset=utf-8'
+      meta 'http-equiv'=> "Content-Script-Type", 'content'=>"text/javascript"
+      meta 'http-equiv'=> "Content-Style-Type", 'content'=>"text/css"
+      meta 'name'=> "robots", 'content'=>"all"
+      meta 'name'=> "description", 'content'=>"Artisanal retro-futurism crossed with team-scale anarcho-syndicalism"
+      meta 'name'=> "generator", 'content'=>"Ramaze #{Ramaze::VERSION}"
+      meta 'name'=> "keywords", 'content'=>"software artisan, software craftsmanship, agile, retro-futurism, software teams, anarcho syndicalism, agile manifesto"
+      meta 'name'=> "author", 'content'=>"Brian Marick"
+      meta 'name'=> "date", 'content' => "#{Time.now.iso8601}"
 
-        title raw("AR&otimes;TA")
+      title raw("AR&otimes;TA")
 
-        link :href=>"/css/screen.css", :media=>"screen", :rel=>"stylesheet",
-             :type=>"text/css"
-      end
+      link :href=>"/css/screen.css", :media=>"screen", :rel=>"stylesheet",
+           :type=>"text/css"
     end
   end
 
   def always_visible_links
-    nav_container do
-      ul do
-        li { within_site_link_maker.emit_via(self, :text => 'Home', :route => :index) }
-        li { within_site_link_maker.emit_via(self, :text => 'Words', :route => :explanation) }
-        li { within_site_link_maker.emit_via(self, :text => 'Video', :route => :video) }
-        li { within_site_link_maker.emit_via(self, :text => 'Gear', :route => :gear) }
-        li { within_site_link_maker.emit_via(self, :text => 'Help Wanted', :route => :help_wanted) }
-      end
+    ul do
+      li { within_site_link_maker.emit_via(self, :text => 'Home', :route => :index) }
+      li { within_site_link_maker.emit_via(self, :text => 'Words', :route => :explanation) }
+      li { within_site_link_maker.emit_via(self, :text => 'Video', :route => :video) }
+      li { within_site_link_maker.emit_via(self, :text => 'Gear', :route => :gear) }
+      li { within_site_link_maker.emit_via(self, :text => 'Help Wanted', :route => :help_wanted) }
     end
   end
 
   def links_relevant_to_this_page()
-    sidebar do
-      h1 :class => 'sideHeader' do
-
+    return if @links_relevant_to_this_page.empty?
+    div(:id => 'links_relevant_to_this_page') do
+      ul do
+        br; br
+        @links_relevant_to_this_page.each do |data|
+          name = data[0]
+          hash = data[1]
+          li { a raw(name), hash }
+        end
       end
     end
+
   end
 
 

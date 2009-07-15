@@ -2,7 +2,13 @@ require 'helper/arxta-page'
 
 
 class ExplanationPage < ArxtaPage
-  
+
+  def initialize(*args)
+    super
+    has_relevant_link("en fran&ccedil;ais", 
+                      :href => "http://www.ehsavoie.com/2009/06/its-evolution-baby-do-revolution.html")
+  end
+
   def content
     for_page_content do
       p do
@@ -144,8 +150,8 @@ class ExplanationPage < ArxtaPage
       h2 "The Social"
 
       p do
-       rawtext "Agile&#8217;s early emphasis on self-organizing teams caused some to brand it "
-       rawtext "<strong>anarchic</strong>. Soothing those fears has led, in too many cases, to team processes that are externally
+        rawtext "Agile&#8217;s early emphasis on self-organizing teams caused some to brand it "
+        rawtext "<strong>anarchic</strong>. Soothing those fears has led, in too many cases, to team processes that are externally
                 imposed and therefore ossified. To counter that trend, we want to embrace the anarchic
                 strain in Agile. (What should be done to sooth fears, we believe, is nothing more than
                 producing working software at frequent intervals. So long as a team delivers that which
