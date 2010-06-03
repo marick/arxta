@@ -1,0 +1,2 @@
+Haven't ported these tests from Ramaze to Sinatra. They test
+helpers/views, mainly, which haven't changed.
