@@ -1,5 +1,6 @@
 require 'helper/arxta-page'
 
+module View
 
 class IndexPage < ArxtaPage
   def the_footer
@@ -46,3 +47,4 @@ class IndexPage < ArxtaPage
   end
 end
 
+end

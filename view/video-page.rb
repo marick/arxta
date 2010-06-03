@@ -1,5 +1,6 @@
 require 'helper/arxta-page'
 
+module View
 
 class VideoPage < ArxtaPage
 
@@ -51,4 +52,6 @@ class VideoPage < ArxtaPage
       end
     end
   end
+end
+
 end

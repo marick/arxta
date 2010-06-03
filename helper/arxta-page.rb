@@ -6,11 +6,13 @@ require 'helper/more-html'
 
 class ArxtaPage < Erector::Widget
   needs :within_site_link_maker
+  attr_reader :within_site_link_maker
 
   def initialize(*args)
     super
     @links_relevant_to_this_page = []
   end
+
 
   def has_relevant_link(name, hash={})
     @links_relevant_to_this_page << [name, hash]
@@ -102,7 +104,7 @@ class ArxtaPage < Erector::Widget
       meta 'http-equiv'=> "Content-Style-Type", 'content'=>"text/css"
       meta 'name'=> "robots", 'content'=>"all"
       meta 'name'=> "description", 'content'=>"Artisanal retro-futurism crossed with team-scale anarcho-syndicalism"
-      meta 'name'=> "generator", 'content'=>"Ramaze #{Ramaze::VERSION}"
+      meta 'name'=> "generator", 'content'=>"Sinatra"
       meta 'name'=> "keywords", 'content'=>"software artisan, software craftsmanship, agile, retro-futurism, software teams, anarcho syndicalism, agile manifesto"
       meta 'name'=> "author", 'content'=>"Brian Marick"
       meta 'name'=> "date", 'content' => "#{Time.now.iso8601}"
@@ -116,11 +118,11 @@ class ArxtaPage < Erector::Widget
 
   def always_visible_links
     ul do
-      li { within_site_link_maker.emit_via(self, :text => 'Home', :route => :index) }
-      li { within_site_link_maker.emit_via(self, :text => 'Words', :route => :explanation) }
-      li { within_site_link_maker.emit_via(self, :text => 'Video', :route => :video) }
-      li { within_site_link_maker.emit_via(self, :text => 'Gear', :route => :gear) }
-      li { within_site_link_maker.emit_via(self, :text => 'Help Wanted', :route => :help_wanted) }
+      li { within_site_link_maker.emit_via(self, :text => 'Home', :route => '/') }
+      li { within_site_link_maker.emit_via(self, :text => 'Words', :route => '/explanation') }
+      li { within_site_link_maker.emit_via(self, :text => 'Video', :route => '/video') }
+      li { within_site_link_maker.emit_via(self, :text => 'Gear', :route => '/gear') }
+      li { within_site_link_maker.emit_via(self, :text => 'Help Wanted', :route => 'help_wanted') }
     end
   end
 

@@ -1,10 +1,10 @@
-# This file contains your application, it requires dependencies and necessary
-# parts of the application.
-#
-# It will be required from either `config.ru` or `start.rb`
+require 'rubygems'
+require File.expand_path('path-setting', File.dirname(__FILE__))
 
-require 'ramaze'
-    
-# Initialize controllers and models
-require 'model/init'
-require 'controller/init'
+require 'config'
+require 'controller/base'
+
+Sinatra::Base.configure :development do
+  Controller.run! :host => 'localhost', :port => 7000
+end
+

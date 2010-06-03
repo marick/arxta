@@ -1,5 +1,6 @@
 require 'helper/arxta-page'
 
+module View
 
 class ExplanationPage < ArxtaPage
 
@@ -228,3 +229,5 @@ class ExplanationPage < ArxtaPage
   end
 end
 
+
+end

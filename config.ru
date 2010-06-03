@@ -1,9 +1,5 @@
 #!/usr/bin/env rackup
-#
-# config.ru for ramaze apps
-# use thin >= 1.0.0
-# thin start -R config.ru
-#
+
 # rackup is a useful tool for running Rack applications, which uses the
 # Rack::Builder DSL to configure middleware and build up applications easily.
 #
@@ -14,7 +10,5 @@
 require File.expand_path('path-setting', File.dirname(__FILE__))
 require File.expand_path('app', File.dirname(__FILE__))
 
-Ramaze.options.mode = :live
-
-Ramaze.start(:file => __FILE__, :started => true)
-run Ramaze
+require 'sinatra/base'
+run Controller

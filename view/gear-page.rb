@@ -1,5 +1,6 @@
 require 'helper/arxta-page'
 
+module View
 
 class GearPage < ArxtaPage
 
@@ -26,7 +27,8 @@ class GearPage < ArxtaPage
 
       sticker 'The Anonymous', 'sticker.jpg'
       sticker 'The Bordered', 'arxta-with-url.png'
-      sticker 'The Name Dropper', 'agree.png'
     end
   end
+end
+
 end

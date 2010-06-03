@@ -14,7 +14,9 @@ module Locations
     end if ENV.has_key?('RUBYLIB')
   end
 
-  ENV['GEM_HOME'] = ENV['GEM_PATH'] = File.join(__DIR__,'third-party', 'gems')
+  # Make third party gems have precedence over system gems, but still
+  # allow system gems for things like Rack and Mysql.
+  ENV['GEM_HOME'] = File.join(__DIR__,'third-party', 'gems')
   require 'rubygems'
 
   # Add the directory this file resides in to the load path, so you can run the

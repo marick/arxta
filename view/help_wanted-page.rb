@@ -1,5 +1,6 @@
 require 'helper/arxta-page'
 
+module View
 
 class HelpWantedPage < ArxtaPage
 
@@ -20,11 +21,13 @@ class HelpWantedPage < ArxtaPage
       p do
         rawtext "We could use someone with graphic design skill to make the website
                  look better. The site is powered by "
-        a 'Ramaze', :href => "http://ramaze.net"
+        a 'Sinatra', :href => "http://www.sinatrarb.com/"
        rawtext ", an interesting Ruby web framework, and we could use more people
                 to add to it."
       end
 
     end
   end
+end
+
 end
